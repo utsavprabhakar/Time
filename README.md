@@ -2,10 +2,10 @@
 A simple chrome extension that lets you keep track of the time you spend on each site.
 
 ### Setup
-* git clone https://github.com/utsavprabhakar/Time.git
-* [Go to <chrome://extensions>](chrome://extensions)
-* Enable developer mode on the top right hand corner.
-* Click on "LOAD UNPACKED" on the top left hand corner.
+* `git clone https://github.com/utsavprabhakar/Time.git`
+* Go to `chrome://extensions`
+* Enable **Developer mode** on the top right hand corner.
+* Click on **Load Unpacked** on the top left hand corner.
 * Navigate to the folder when you cloned this repo.
 
 
