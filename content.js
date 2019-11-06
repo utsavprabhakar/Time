@@ -1,6 +1,12 @@
-// 'use strict';
-// var cur = window.location.host;
-// console.log(cur);
+'use strict';
+var cur = window.location.href;
+console.log(cur);
+if(cur.includes("reports")){
+	chrome.runtime.sendMessage({sync: "sync"}, function(response) {
+  	console.log(response);
+    alert(response);
+	})
+}
 
 // var sites = [];
 // sites.push("http://flutter.io");

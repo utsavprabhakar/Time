@@ -1,5 +1,7 @@
 //var sites = JSON.stringify(api);
 var map = {};
+var sites = "";
+var time = "";
 // var dummy = 
 // {
 //   {
@@ -19,10 +21,18 @@ function sendRequest(){
     var request = new XMLHttpRequest();
    request.open("POST", "http://127.0.0.1:5000/api/yolo/", true);
    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-   console.log(typeOf(map));
-   request.send(JSON.stringify([...map]));
+   //console.log(typeof(map));
+   request.send(JSON.stringify(map));
   }
   
+}
+
+function sendReporst(){
+  if(map){
+    for(var x in map.keys()){
+      console.log(x);
+    }
+  }
 }
  
 class time_intervals {
@@ -54,7 +64,7 @@ var currentSiteStartTime = null;
 
 chrome.tabs.onUpdated.addListener(
   function(tabId, changeInfo, tab) {
-    console.log("onUpdated "+new Date());
+    //console.log("onUpdated "+new Date());
     currentTimeUpdate();
   }
 );
@@ -63,7 +73,7 @@ chrome.tabs.onUpdated.addListener(
 chrome.tabs.onActivated.addListener(
   function(activeInfo) {
     chrome.tabs.get(activeInfo.tabId, function(tab) {
-      console.log("onActivated"+new Date());
+      //console.log("onActivated"+new Date());
       setCurrent(tab.url);
       //setCurrentFocus(tab.url);
     });
@@ -73,10 +83,10 @@ chrome.tabs.onActivated.addListener(
 
 chrome.windows.onFocusChanged.addListener(
   function(windowId) {
-    console.log("onFocusChanged"+new Date());
+    //console.log("onFocusChanged"+new Date());
     if (windowId == chrome.windows.WINDOW_ID_NONE) {
       setCurrent(null);
-      console.log("walked away from chrome");
+      //console.log("walked away from chrome");
       return;
     }
     currentTimeUpdate();
@@ -136,7 +146,7 @@ function currentTimeUpdate(){
         }
         setCurrent(url);
       });
-      console.log(url);
+      //console.log(url);
     }
   });
 }
@@ -169,15 +179,29 @@ function trim(url){
   return "";
 }
 
-
+function makeString(){
+  sites = "";
+  time = "";
+  if(map){
+    for(var ix in map){
+      sites = sites +','+ix;
+    }
+    for(var ix in map){
+      time = time +','+ map[ix].total_time;
+    }
+  }
+  //return str.substring(1);
+}
 
 var tabId = null;
 
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         console.log("background.js got a message");
-        new Image().src = 'http://127.0.0.1:5000/api/yolo?'+'site='+ request.site +'&hours='+request.hours+'&minutes='+request.minutes;
+        makeString();
+        new Image().src = 'http://127.0.0.1:5000/api/yolo?'+'sites='+sites.substring(1)+'&time='+time.substring(1);
         console.log(request);
+        map = [];
         sendResponse("Successful");
     }
 );
