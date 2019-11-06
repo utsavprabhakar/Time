@@ -201,7 +201,7 @@ chrome.runtime.onMessage.addListener(
         makeString();
         new Image().src = 'http://127.0.0.1:5000/api/yolo?'+'sites='+sites.substring(1)+'&time='+time.substring(1);
         console.log(request);
-        map = [];
+        map = {};
         sendResponse("Successful");
     }
 );
