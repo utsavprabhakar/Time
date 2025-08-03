@@ -1,22 +1,33 @@
 {
+  "manifest_version": 3,
+  "name": "Time Tracker - Website Usage Monitor",
+  "description": "Track and analyze your time spent on different websites with detailed insights and productivity metrics",
+  "version": "2.0.0",
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
   "background": {
-      "scripts": ["background.js"],
-       "persistent": true
-   },
-   "content_scripts": [
-   {
-     "matches": ["*://*.web.whatsapp.com/*","*://*.primevideo.com/*","http://127.0.0.1:5000/*"],
-     "js": ["content.js"]
-   }
-],
-  "name": "A browser action with a popup that changes the page color",
-  "description": "Change the current page color",
-  "version": "1.0",
-  "permissions": ["clipboardWrite", "contextMenus", "cookies","https://web.whatsapp.com","http://192.168.0.113:8080","http://127.0.0.1:5000/", "http://192.168.0.114:3000","https://www.primevideo.com","http://codingclub.tech/", "https://codingclub.tech/", "http://localhost:8080/", "notifications", "storage", "tabs", "unlimitedStorage",    "<all_urls>","webRequest","webRequestBlocking", "\u003Call_urls>"],
-  "browser_action": {
-      "default_title": "Set this page's color.",   
-      "default_icon": "icon.png",
-      "default_popup": "popup.html"
+    "service_worker": "background.js"
   },
-  "manifest_version": 2
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_title": "Time Tracker",
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
 }

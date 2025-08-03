@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Tracker Test Page</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .success {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .info {
+            color: #3498db;
+            font-weight: bold;
+        }
+        .warning {
+            color: #f39c12;
+            font-weight: bold;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #5a6fd8;
+        }
+    </style>
+</head>
+<body>
+    <h1>⏱️ Time Tracker Extension Test</h1>
+    
+    <div class="test-section">
+        <h2>Extension Status</h2>
+        <p><span class="info">ℹ️</span> This page is being tracked by the Time Tracker extension.</p>
+        <p><span class="success">✅</span> If you can see this page, the extension is working!</p>
+    </div>
+
+    <div class="test-section">
+        <h2>How to Test</h2>
+        <ol>
+            <li>Make sure the Time Tracker extension is installed and enabled</li>
+            <li>Click the extension icon in your browser toolbar</li>
+            <li>You should see a beautiful dashboard with your tracking data</li>
+            <li>Navigate to different websites to see time tracking in action</li>
+            <li>Use the buttons below to simulate activity</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Actions</h2>
+        <p>Click these buttons to simulate user activity and test the extension:</p>
+        <button onclick="simulateActivity()">Simulate Activity</button>
+        <button onclick="scrollPage()">Scroll Page</button>
+        <button onclick="checkConsole()">Check Console</button>
+    </div>
+
+    <div class="test-section">
+        <h2>Expected Behavior</h2>
+        <ul>
+            <li><span class="success">✅</span> Extension popup should show a modern UI</li>
+            <li><span class="success">✅</span> Time tracking should work automatically</li>
+            <li><span class="success">✅</span> Data should persist between browser sessions</li>
+            <li><span class="success">✅</span> Export functionality should work</li>
+            <li><span class="success">✅</span> Reset functionality should work</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>Troubleshooting</h2>
+        <p><span class="warning">⚠️</span> If the extension isn't working:</p>
+        <ul>
+            <li>Check that Developer mode is enabled in chrome://extensions/</li>
+            <li>Make sure the extension is loaded and enabled</li>
+            <li>Check the browser console for any error messages</li>
+            <li>Try refreshing the extension in chrome://extensions/</li>
+        </ul>
+    </div>
+
+    <script>
+        function simulateActivity() {
+            // Simulate user activity
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    document.dispatchEvent(new Event('click'));
+                    console.log('Simulated click activity');
+                }, i * 100);
+            }
+            alert('Activity simulation complete! Check the extension popup for updated data.');
+        }
+
+        function scrollPage() {
+            // Simulate scrolling
+            window.scrollTo(0, document.body.scrollHeight);
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+                console.log('Simulated scroll activity');
+            }, 500);
+        }
+
+        function checkConsole() {
+            console.log('=== Time Tracker Extension Test ===');
+            console.log('Current URL:', window.location.href);
+            console.log('Extension should be tracking this page');
+            console.log('Check the extension popup for your data!');
+            alert('Check the browser console for test information!');
+        }
+
+        // Log when page loads
+        console.log('Time Tracker Test Page Loaded');
+        console.log('Extension should be tracking this page automatically');
+    </script>
+</body>
+</html> 
