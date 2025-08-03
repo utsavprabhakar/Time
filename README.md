@@ -2,7 +2,7 @@
 
 A modern Chrome extension that helps you track and analyze your time spent on different websites with detailed insights and productivity metrics.
 
-## ✨ Features
+## Features
 
 - **Real-time Tracking**: Automatically tracks time spent on each website
 - **Beautiful Dashboard**: Modern, intuitive UI with visual statistics
@@ -11,7 +11,17 @@ A modern Chrome extension that helps you track and analyze your time spent on di
 - **Privacy First**: All data stays on your device - no external servers
 - **Modern Architecture**: Built with Manifest V3 and modern JavaScript
 
-## 🚀 Installation
+## 📸 Screenshots
+
+### Extension Popup Interface
+![Extension Popup](assets/widget.png)
+*The modern popup interface showing real-time statistics and top sites*
+
+### Full Dashboard View
+![Full Dashboard](assets/full_page.png)
+*Complete dashboard with detailed time tracking data and export functionality*
+
+## Installation
 
 ### Method 1: Load Unpacked (Development)
 1. Clone this repository:
@@ -29,13 +39,14 @@ A modern Chrome extension that helps you track and analyze your time spent on di
 ### Method 2: Chrome Web Store (Coming Soon)
 - Extension will be available on the Chrome Web Store for easy installation
 
-## 📊 Usage
+## Usage
 
 1. **Install the extension** using one of the methods above
 
 2. **Start browsing** - The extension automatically begins tracking your time
 
 3. **View your data** by clicking the Time Tracker icon in your browser toolbar
+   ![Extension Popup](assets/widget.png)
 
 4. **Explore your stats**:
    - Total time spent browsing
@@ -47,7 +58,7 @@ A modern Chrome extension that helps you track and analyze your time spent on di
    - Reset all tracking data
    - Export data for external analysis
 
-## 🎯 Key Improvements (v2.0.0)
+## Key Improvements (v2.0.0)
 
 ### Phase 1: Foundation & Security ✅
 - **Manifest V3**: Updated to latest Chrome extension standards
